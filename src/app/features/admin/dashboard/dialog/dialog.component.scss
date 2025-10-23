@@ -1,0 +1,13 @@
+.calendar-container {
+  background: var(--card-color);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-loading {
+  text-align: center;
+  color: var(--text-color);
+  margin-top: 50px;
+  font-size: 18px;
+}

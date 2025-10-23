@@ -1,0 +1,9 @@
+<div *ngIf="isBrowser" class="calendar-container">
+  <div class="calendar-header">
+    <button mat-raised-button color="primary" (click)="openCreateDialogManual()">
+      <mat-icon>add</mat-icon> إضافة موعد جديد
+    </button>
+  </div>
+
+  <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+</div>

@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+/* الوضع الداكن */
+.dark-theme {
+  --bg-color: #121212;
+  --card-color: #1d1d1f;
+  --text-color: #f3f4f6; /* النص أبيض */
+  --input-text-color: #ffffff; /* النص داخل المربعات أبيض */
+  --input-label-color: #cfd3dc; /* لون الـ label الفاتح */
+  --border-color: rgba(255, 255, 255, 0.18);
+}
+
+/*  الوضع الفاتح */
+.light-theme {
+  --bg-color: #f3f4f6;
+  --card-color: #ffffff;
+  --text-color: #1a1a1a; /* النص أسود */
+  --input-text-color: #000000; /* النص داخل المربعات أسود */
+  --input-label-color: #333333; /* لون الـ label غامق */
+  --border-color: rgba(0, 0, 0, 0.15);
+}
+

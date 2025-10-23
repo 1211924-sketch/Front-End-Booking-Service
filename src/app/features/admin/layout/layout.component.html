@@ -1,0 +1,74 @@
+<div class="layout" [class.sidebar-collapsed]="isCollapsed">
+  <!-- 🌙 Sidebar -->
+  <button class="theme-toggle" (click)="toggleTheme()">
+    <mat-icon *ngIf="themeService.isDarkMode()">wb_sunny</mat-icon>
+    <mat-icon *ngIf="!themeService.isDarkMode()">dark_mode</mat-icon>
+  </button>
+  <aside class="sidebar">
+
+      <div class="brand">
+        <button class="collapse-btn" (click)="toggleSidebar()">
+          <mat-icon>{{ isCollapsed ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+        </button>
+
+        <!--الشعار -->
+        <img src="assets/logo.png" alt="Logo" class="logo" />
+
+        <h2 *ngIf="!isCollapsed">Booking Service</h2>
+      </div>
+
+      <!-- 👇 القائمة أصبحت أسفل الـ Brand -->
+    <div class="menu-container">
+      <nav class="nav" dir="rtl">
+        <a routerLink="/admin/grow" routerLinkActive="active">
+          <mat-icon>trending_up</mat-icon>
+          <span>تطوير العلامة التجارية</span>
+        </a>
+
+        <a routerLink="/admin/dashboard" routerLinkActive="active">
+          <mat-icon>calendar_today</mat-icon>
+          <span>التقويم</span>
+        </a>
+
+        <a routerLink="/admin/services" routerLinkActive="active">
+          <mat-icon>design_services</mat-icon>
+          <span>الخدمات</span>
+        </a>
+
+        <a routerLink="/admin/connect" routerLinkActive="active">
+          <mat-icon>forum</mat-icon>
+          <span>التواصل</span>
+        </a>
+
+        <a routerLink="/admin/payments" routerLinkActive="active">
+          <mat-icon>payments</mat-icon>
+          <span>المدفوعات</span>
+        </a>
+
+        <a routerLink="/admin/customer" routerLinkActive="active">
+          <mat-icon>people</mat-icon>
+          <span>العملاء</span>
+        </a>
+
+        <a routerLink="/admin/integrations" routerLinkActive="active">
+          <mat-icon>hub</mat-icon>
+          <span>التكاملات</span>
+        </a>
+
+        <a routerLink="/admin/settings" routerLinkActive="active">
+          <mat-icon>settings</mat-icon>
+          <span>الإعدادات</span>
+        </a>
+      </nav>
+
+
+    </div>
+
+
+  </aside>
+
+  <!--  Main Content -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

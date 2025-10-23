@@ -1,0 +1,25 @@
+<h2>إعدادات العيادة</h2>
+
+<!-- اختيار أيام العطل -->
+<mat-card>
+  <h3>أيام العطل</h3>
+  <mat-selection-list [(ngModel)]="holidays">
+    <mat-list-option *ngFor="let day of weekDays" [value]="day.value">
+      {{ day.label }}
+    </mat-list-option>
+  </mat-selection-list>
+</mat-card>
+
+<!-- أوقات الدوام -->
+<mat-card>
+  <h3>ساعات الدوام</h3>
+  <div *ngFor="let day of weekDays">
+    <div>
+      <strong>{{ day.label }}</strong>
+      <input type="time" [(ngModel)]="workHours[day.value].start" /> -
+      <input type="time" [(ngModel)]="workHours[day.value].end" />
+    </div>
+  </div>
+</mat-card>
+
+<button mat-raised-button color="primary" (click)="saveSettings()">💾 حفظ الإعدادات</button>

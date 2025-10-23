@@ -1,0 +1,166 @@
+/* src/app/features/auth-customer/login/login.component.scss */
+$bg: #121212;
+$card: #1d1d1f;
+$text: #f3f4f6;
+$muted: #a9abb3;
+
+.auth-wrap {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.auth-card {
+  background: var(--card-color);
+  color: var(--text-color);
+}
+
+
+.title { margin: 2px 0 16px; font-weight: 800; font-size: clamp(22px, 2.6vw, 28px); }
+
+.auth-form { display: grid; gap: 12px; margin-top: 6px; .full{width:100%} }
+.cta { height: 44px; border-radius: 999px; font-weight: 700; }
+
+.tiny-link { margin-top: 6px; font-size: 13px; color: $muted; text-decoration: none; &:hover{color:$text;text-decoration:underline;} }
+
+.divider { position: relative; margin: 16px 0; height: 1px; background: rgba(255,255,255,.08);
+  span { position: absolute; inset-inline-start: 50%; inset-block-start: -11px; translate: -50% 0;
+     padding: 0 10px; color: $muted; font-size: 12px; } }
+
+.google { height: 44px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  .g { width: 18px; height: 18px; } }
+
+/* مربعات الإدخال (inputs) */
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-input-text-color: var(--input-text-color);
+  --mdc-outlined-text-field-label-text-color: var(--input-label-color);
+  --mdc-outlined-text-field-outline-color: var(--border-color);
+  --mdc-outlined-text-field-caret-color: var(--input-text-color);
+}
+
+input.mat-input-element,
+input[matInput] {
+  color: var(--input-text-color) !important;
+  background-color: transparent !important;
+}
+
+mat-label,
+mat-hint,
+mat-error {
+  color: var(--input-label-color) !important;
+}
+
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #1d1d1f inset !important; /* نفس لون الخلفية الداكنة */
+  -webkit-text-fill-color: #f3f4f6 !important; /* النص أبيض */
+  caret-color: #f3f4f6 !important;
+  border: none !important;
+  outline: none !important;
+  transition: background-color 9999s ease-in-out 0s !important;
+}
+
+
+input {
+  background-color: transparent !important;
+  color: #f3f4f6 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+.mat-mdc-text-field-wrapper,
+.mdc-text-field {
+  background-color: transparent !important;
+}
+
+.auth-wrap {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  background: var(--bg-color);
+  color: var(--text-color);
+  padding: 24px;
+}
+
+.auth-card {
+  width: min(560px, 92vw);
+  background: var(--card-color);
+  border-radius: 18px;
+  padding: clamp(20px, 4vw, 36px);
+  box-shadow: 0 10px 40px rgba(0,0,0,.45);
+  text-align: center;
+}
+
+.title {
+  margin: 2px 0 16px;
+  font-weight: 800;
+  font-size: clamp(22px, 2.6vw, 28px);
+}
+
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-input-text-color: var(--text-color);
+  --mdc-outlined-text-field-label-text-color: var(--muted-color);
+  --mdc-outlined-text-field-outline-color: var(--border-color);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #5da9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 9999;
+
+  mat-icon {
+    font-size: 24px;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: #82c2ff;
+  }
+
+  &:active mat-icon {
+    transform: rotate(20deg);
+  }
+}
+
+
+.error-box {
+  margin-top: 4px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: rgba(255, 0, 0, 0.08);
+  color: #ff6b6b;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 0, 0, 0.25);
+  animation: fadeIn 0.25s ease-in-out;
+
+  mat-icon {
+    color: #ff6b6b;
+    font-size: 16px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

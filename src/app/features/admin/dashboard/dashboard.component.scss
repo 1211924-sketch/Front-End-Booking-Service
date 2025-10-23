@@ -1,0 +1,11 @@
+.calendar-container {
+  padding: 20px;
+  background: var(--bg-color);
+  color: var(--text-color);
+
+  ::ng-deep .fc {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,14 @@
+<div class="auth-wrap">
+  <mat-card class="auth-card">
+    <h1 class="title">تم إرسال الرابط</h1>
+
+    <p class="info">
+      لقد أرسلنا رابط إعادة تعيين كلمة المرور إلى:
+      <strong>{{ email }}</strong>
+    </p>
+
+    <button mat-raised-button color="primary" (click)="backToLogin()">
+      العودة لتسجيل الدخول
+    </button>
+  </mat-card>
+</div>

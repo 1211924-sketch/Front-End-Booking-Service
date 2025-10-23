@@ -1,0 +1,241 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+.logo {
+  width: 80px; /* يمكنك تعديل الحجم حسب رغبتك */
+  height: auto; /* يحافظ على التناسب الأصلي للصورة */
+  display: block;
+  margin: 12px auto;
+  object-fit: contain; /* يعرض الصورة كاملة دون قصّ */
+  border-radius: 0; /* يزيل الشكل الدائري */
+  box-shadow: none; /* يمكن إزالة الظل أو إبقاؤه حسب الذوق */
+}
+
+
+
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: var(--card-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 👈 هنا التغيير */
+  padding: 20px;
+  border-inline-end: 1px solid var(--border-color);
+}
+
+/* Brand */
+.brand {
+  text-align: center;
+  margin-bottom: 30px;
+
+  .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+
+  h2 {
+    margin: 10px 0 0;
+    font-size: 18px;
+  }
+}
+
+/* Navigation */
+.menu-container {
+  flex: 1; /* 👈 تجعل القائمة تأخذ المساحة الوسطى */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  a {
+    padding: 10px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.15);
+      font-weight: bold;
+    }
+  }
+}
+
+/* Bottom (Theme Toggle) */
+.bottom {
+  text-align: center;
+  margin-top: auto; /* 👈 يجعل الزر دائمًا أسفل الـ Sidebar */
+  }
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #5da9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 9999;
+
+  mat-icon {
+    font-size: 24px;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: #82c2ff;
+  }
+
+  &:active mat-icon {
+    transform: rotate(20deg);
+  }
+}
+
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  direction: rtl;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background 0.25s ease, transform 0.2s;
+
+    mat-icon {
+      font-size: 22px;
+      color: var(--muted-color);
+      transition: color 0.3s ease;
+    }
+
+    span {
+      font-weight: 500;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(-3px);
+
+      mat-icon {
+        color: var(--text-color);
+      }
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.15);
+      mat-icon {
+        color: var(--text-color);
+      }
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.sidebar {
+  width: 240px;
+  background: var(--card-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-inline-end: 1px solid var(--border-color);
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.collapse-btn {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+
+  mat-icon {
+    font-size: 24px;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+/* عند الطيّ */
+.layout.sidebar-collapsed .sidebar {
+  width: 70px;
+}
+
+.layout.sidebar-collapsed .sidebar .logo {
+  width: 40px;
+  height: 40px;
+}
+
+.layout.sidebar-collapsed .nav a span {
+  display: none;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: bold;
+  }
+}

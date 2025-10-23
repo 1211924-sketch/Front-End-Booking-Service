@@ -1,0 +1,42 @@
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+mat-card {
+  margin: 15px auto;
+  padding: 15px;
+  width: 85%;
+  background-color: var(--card-color);
+  color: var(--text-color);
+}
+
+.holidays {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.time-input {
+  width: 100px;
+  border: none;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+}
+
+.save-btn {
+  display: block;
+  margin: 20px auto;
+  width: 180px;
+  font-size: 16px;
+  font-weight: bold;
+}

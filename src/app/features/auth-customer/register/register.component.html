@@ -1,0 +1,83 @@
+<!-- src/app/features/auth-customer/register/register.component.html -->
+<div class="auth-wrap">
+  <mat-card class="auth-card">
+    <h1 class="title">إنشاء حساب جديد</h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form" dir="rtl" autocomplete="off">
+      <mat-form-field appearance="outline" class="full">
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-label>الاسم الكامل</mat-label>
+        <input matInput formControlName="fullName" placeholder="الاسم الثلاثي" autocomplete="off" />
+        <mat-error *ngIf="registerForm.controls.fullName.touched && registerForm.controls.fullName.invalid">
+          أدخل اسمًا صحيحًا (3 أحرف على الأقل)
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-icon matPrefix>call</mat-icon>
+        <mat-label>رقم الهاتف</mat-label>
+        <input matInput formControlName="phone" placeholder="+970 5x xxx xxxx" autocomplete="off" />
+        <mat-error *ngIf="registerForm.controls.phone.touched && registerForm.controls.phone.invalid">
+          أدخل رقم هاتف صحيحًا (8–15 خانة)
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-icon matPrefix>mail</mat-icon>
+        <mat-label>البريد الإلكتروني</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="name@email.com" autocomplete="off" />
+        <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+          بريد إلكتروني غير صالح
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-icon matPrefix>calendar_today</mat-icon>
+        <mat-label>تاريخ الميلاد</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="اختر التاريخ" />
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="registerForm.controls.dob.touched && registerForm.controls.dob.invalid">
+          أدخل تاريخ ميلاد
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-label>كلمة المرور</mat-label>
+        <input matInput type="password" formControlName="password" autocomplete="new-password" placeholder="••••••••" />
+        <mat-hint>8 أحرف+ أرقام + رموز</mat-hint>
+        <mat-error *ngIf="registerForm.controls.password.touched && registerForm.controls.password.errors?.['minlength']">
+          كلمة المرور لا تقل عن 8 أحرف
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls.password.touched && registerForm.controls.password.errors?.['pattern']">
+          يجب أن تحتوي على أحرف وأرقام ورموز
+        </mat-error>
+        <div class="error-box" *ngIf="serverError">{{ serverError }}</div>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="cta full" type="submit" [disabled]="registerForm.invalid">
+        تسجيل
+      </button>
+    </form>
+
+    <div class="divider"><span>أو</span></div>
+
+    <button mat-stroked-button class="google full" (click)="continueWithGoogle()">
+      <img class="g" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="" />
+      <span>المتابعة باستخدام Google</span>
+    </button>
+
+
+    <button mat-button color="accent" (click)="goToLogin()">
+      العودة إلى تسجيل الدخول
+    </button>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+

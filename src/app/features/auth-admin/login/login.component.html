@@ -1,0 +1,74 @@
+<!-- src/app/features/auth-customer/login/login.component.html -->
+<div class="auth-wrap">
+  <!-- زر تبديل الثيم -->
+  <button class="theme-toggle" (click)="toggleTheme()">
+    <mat-icon *ngIf="themeService.isDarkMode()">wb_sunny</mat-icon>
+    <mat-icon *ngIf="!themeService.isDarkMode()">dark_mode</mat-icon>
+  </button>
+  <mat-card class="auth-card">
+    <h1 class="title">تسجيل الدخول للعيادة</h1>
+
+    <form [formGroup]="loginForm"
+          (ngSubmit)="onSubmit()"
+          class="auth-form"
+          dir="rtl"
+          autocomplete="off" aria-label="نموذج تسجيل الدخول">
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-icon matPrefix>mail</mat-icon>
+        <mat-label>البريد الإلكتروني</mat-label>
+        <input matInput type="email" formControlName="email" autocomplete="off" placeholder="example@email.com" />
+        <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+          أدخل بريدًا إلكترونيًا صحيحًا
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-label>كلمة المرور</mat-label>
+        <input matInput type="password" formControlName="password" autocomplete="new-password" placeholder="••••••••" />
+        <mat-hint>8 أحرف على الأقل وتضم أحرفًا وأرقامًا ورموزًا</mat-hint>
+        <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.['minlength']">
+          كلمة المرور لا تقل عن 8 أحرف
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.['pattern']">
+          يجب أن تحتوي على أحرف وأرقام ورموز
+        </mat-error>
+      </mat-form-field>
+
+
+      <!-- رسالة الخطأ عند كلمة مرور خاطئة -->
+      <div *ngIf="loginError" class="error-box">
+        <mat-icon>error_outline</mat-icon>
+        البريد الإلكتروني أو كلمة المرور غير صحيحة
+      </div>
+
+      <button mat-raised-button color="primary" class="cta full" type="submit" [disabled]="loginForm.invalid">
+        دخول
+      </button>
+
+      <a class="tiny-link" (click)="goToResetPassword()">هل نسيت كلمة المرور؟</a>
+    </form>
+
+    <div class="divider"><span>أو</span></div>
+
+    <!-- إزالة فيسبوك وإيميل — Google فقط -->
+    <button mat-stroked-button class="google full" (click)="continueWithGoogle()">
+      <img class="g" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="" />
+      <span>المتابعة باستخدام Google</span>
+    </button>
+
+    <button mat-button color="accent" (click)="goToRegister()">
+      إنشاء حساب جديد
+    </button>
+
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
