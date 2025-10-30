@@ -4,7 +4,6 @@ import { SHARED_IMPORTS } from '../../../shared/material.imports';
 import { Router } from '@angular/router';
 import { ThemeService } from '../../../core/services/theme.service';
 
-
 import { AuthService } from '../../../core/services/auth.service';
 import { catchError, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -13,7 +12,7 @@ import { of } from 'rxjs';
   standalone: true,
   imports: [SHARED_IMPORTS],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class CustomerLoginComponent {
   private fb = inject(FormBuilder);
@@ -28,14 +27,16 @@ export class CustomerLoginComponent {
     this.themeService.toggleTheme();
   }
 
-
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/)
-    ]],
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/),
+      ],
+    ],
   });
   goToRegister() {
     this.router.navigate(['/customer/register']);
@@ -44,8 +45,6 @@ export class CustomerLoginComponent {
   goToResetPassword() {
     this.router.navigate(['/customer/reset-password']);
   }
-
-
 
   loginError = false;
   onSubmit() {
@@ -56,15 +55,16 @@ export class CustomerLoginComponent {
     this.loading = true;
     this.serverError = '';
 
-    this.auth.login(this.loginForm.value as any)
+    this.auth
+      .login(this.loginForm.value as any)
       .pipe(
         catchError((e) => {
           this.serverError = e.message || 'بيانات الدخول غير صحيحة';
           return of(null);
         }),
-        finalize(() => this.loading = false)
+        finalize(() => (this.loading = false)),
       )
-      .subscribe(res => {
+      .subscribe((res) => {
         if (!res) return;
         this.router.navigateByUrl('/customer/home');
       });

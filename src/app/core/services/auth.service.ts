@@ -54,7 +54,7 @@ export class AuthService {
   }
 
   resetPassword(dto: ResetDto) {
-    return this.http.post(
+    return this.http.patch(
       environment.apiBase + environment.endpoints.reset, dto
     );
   }

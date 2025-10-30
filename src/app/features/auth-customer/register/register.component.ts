@@ -22,7 +22,7 @@ export class RegisterComponent {
   serverError = '';
 
   registerForm = this.fb.group({
-    fullName: ['', [Validators.required, Validators.minLength(3)]],
+    full_name: ['', [Validators.required, Validators.minLength(3)]],
     phone: ['', [Validators.required, Validators.pattern(/^[0-9+\s-]{8,15}$/)]],
     email: ['', [Validators.required, Validators.email]],
     dob: ['', [Validators.required]],
